@@ -38,7 +38,8 @@ export class AppComponent implements OnInit {
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }
-
+  
+// Banไม่ให้พิมคำในforbiddenUsernamesลงไปในinput
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
       return {'nameIsForbidden': true};
